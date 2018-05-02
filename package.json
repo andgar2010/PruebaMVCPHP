@@ -33,7 +33,8 @@
     "font-awesome": "^4.7.0",
     "jquery": "3",
     "popper.js": "^1.14.3",
-    "propellerkit": "^1.3.1"
+    "propellerkit": "^1.3.1",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

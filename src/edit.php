@@ -16,14 +16,19 @@
 
     <!-- Bootstrap CSS 3.3.7 compiled and minified CSS & JS-->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
-    <!-- Bootstrap Datapicker -->
+    <!-- Bootstrap Datepicker -->
     <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
 
     <!-- Propellerkit -->
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/propeller.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../node_modules/toastr/build/toastr.min.css">
 
     <!--Custom CSS nav-->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -32,6 +37,11 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Script first JQuery, then Toastr JS -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/toastr/build/toastr.min.js"></script>
+
 </head>
 
 <body>
@@ -79,17 +89,19 @@
                     if ($update) {
                         header("Location: edit.php?nik=".$nik."&pesan=sukses");
                     } else {
-                        echo '<div class="alert alert-danger alert-dismissable">
+                        /*echo '<div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times;</button>
                                 Error, no se pudo guardar los datos
-                              </div>';
+                              </div>';*/
+                        echo '<script>toastr.error("no se pudo guardar los datos", "Error", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
                     }
                 }
 
                 if (isset($_GET['pesan']) == 'sukses' ) {
-                    echo '<div class="alert alert-success alert-dismissable">
+                    /*echo '<div class="alert alert-success alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times;</button>Los datos han sido guardados con éxito.
-                        </div>';
+                        </div>';*/
+                    echo '<script>toastr.success("Los datos han sido guardados con éxito.", "Bien hecho!", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
                 }
             ?>
 
@@ -176,13 +188,12 @@
         </div><!-- End div content -->
     </div><!-- End div .container -->
 
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- Popper.js, then Bootstrap JS -->
     <script src="../node_modules/popper.js/dist/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../node_modules/propellerkit/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/propellerkit/dist/js/propeller.min.js"></script>
-
     <script>
         $('.date').datepicker({
             format: 'dd-mm-yyyy',

@@ -8,16 +8,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Datos de empleados</title>
 
-    <!-- Bootstrap 3 -->
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+
+    <!-- Propellerkit -->
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/propeller.min.css">
 
-    <style>
-        .content {
-			margin-top: 80px;
-		}
-    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../node_modules/toastr/build/toastr.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!--[if lt IE 9]>
+        <scriptsrc="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <scriptsrc="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Script first JQuery, then Toastr -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/toastr/build/toastr.min.js"></script>
 
 </head>
 <body>
@@ -28,35 +46,41 @@
         <div class="content">
             <h2>Lista de empleados</h2>
             <hr>
+
             <?php
             if (isset($_GET['aksi']) == 'delete') {
                 $nik = mysqli_real_escape_string($con, (strip_tags($_GET['nik'], ENT_QUOTES))); // escaping, additionally removing everything that cloud be (html/javascript-) code
                 $sql_cek = "SELECT * FROM empleados WHERE codigo = '$nik' ";
                 $cek = mysqli_query($con, $sql_cek);
                 if (mysqli_num_rows($cek) == 0) {
-                    echo '<div class="alert alert-info alert-dismissable">
+                    /* echo '<div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                                     &times;
                                 </button>
                                 No se encontraron datos.
-                            </div>';
-                } else {
-                    $sql_delete = "DELETE FROM empleados WHERE codigo='$nik'";
-                    $delete = mysqli_query($con, $sql_delete);
-                    if ($delete) {
-                        echo '<div class="alert alert-success alert-dismissable">
-                                    <button type="button" class="close" data-dimiss="alert" aria-hidden="true">&times;</button>
-                                    Datos eliminado correctamente.
-                                </div>';
-                    } else {
-                        echo '<div class="alert alert-danger alert-dismissable>
-                                    <button type="button" class="close" data-dimiss"alert" aria-hidden="true">&times;</button>
-                                    Error, no se pudo eliminar los datos.
-                                </div>';
+                            </div>';*/
+                            echo '<script>toastr.info("No se encontraron datos.", "Aviso", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
+                        } else {
+                            $sql_delete = "DELETE FROM empleados WHERE codigo='$nik'";
+                            $delete = mysqli_query($con, $sql_delete);
+                            if ($delete) {
+                                /*echo '<div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dimiss="alert" aria-hidden="true">&times;</button>
+                                Datos eliminado correctamente.
+                                </div>';*/
+                                echo '<script>toastr.success("Datos eliminado correctamente.", "Aviso", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
+                            } else {
+                                /*echo '<div class="alert alert-danger alert-dismissable>
+                                <button type="button" class="close" data-dimiss"alert" aria-hidden="true">&times;</button>
+                                Error, no se pudo eliminar los datos.
+                                </div>';*/
+                                echo '<script>toastr.error("No se pudo eliminar los datos.", "Error", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
                     }
                 }
             }
             ?>
+
+
             <!-- FORM  -->
             <form class="form-inline" action="" method="get">
                 <div class="form-group">
@@ -164,8 +188,11 @@
             <p>&copy; Sistemas Web <?php echo date('Y');?></p>
         </center>
     </footer>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="../node_modules/popper.js/dist/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../node_modules/propellerkit/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/propellerkit/dist/js/propeller.min.js"></script>
 </body>

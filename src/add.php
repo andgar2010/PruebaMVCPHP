@@ -18,14 +18,19 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.mincss" integrity="sha384-Gn5384xqQ1aoWX+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 
     <!-- Bootstrap Datepicker -->
     <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
 
+    <!-- Propellerkit -->
+    <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/propeller.min.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesomemin.css"> -->
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../node_modules/toastr/build/toastr.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -34,6 +39,10 @@
         <scriptsrc="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <scriptsrc="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Script first JQuery, then Toastr -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/toastr/build/toastr.min.js"></script>
 
 </head>
 <body>
@@ -62,21 +71,24 @@
                                                         VALUES('$codigo', '$nombres', '$lugar_nacimiento', '$fecha_nacimiento', '$direccion', '$telefono', '$puesto', '$estado')";
                 $insert =  mysqli_query($con, $sql_insert) or die(mysqli_error());
                 if ($insert){
-                    echo '<div class="alert alert-success alert-dismissable">
+                    /*echo '<div class="alert alert-success alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <strong>Bien hecho!</strong> Los datos han sido guardados con éxito.
-                        </div>';
+                        </div>';*/
+                    echo '<script>toastr.success("Los datos han sido guardados con éxito.", "Bien hecho!", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
                 }else {
-                    echo '<div class="alert alert-danger alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <strong>Error.</strong> No se pudo guardar los datos!
-                        </div>';
+                    /*echo '<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Error.</strong> No se pudo guardar los datos!
+                    </div>';*/
+                    echo '<script>toastr.error("No se pudo guardar los datos!", "Error", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
                 }
             } else {
-                echo '<div class="alert alert-danger alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>Error.</strong> código existe!
-                    </div>';
+                /*echo '<div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Error.</strong> código existe!
+                </div>';*/
+                echo '<script>toastr.error("código existe!", "Error", {timeOut: 6000, "closeButton": true, "progressBar": true})</script>';
             }
         }
         ?>
@@ -154,15 +166,13 @@
         </form> <!-- End Form -->
         </div><!-- End div.content -->
     </div><!-- End div .container -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hpG5KkN" crossorigin="anonymous"></script> -->
+
+    <!-- Popper.js, then Bootstrap JS -->
     <script src="../node_modules/popper.js/dist/popper.min.js"></script>
-    <!-- <scriptsrc="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.minjs" integrity="sha384-ApNbgh9+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script> -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- <scriptsrc="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar+76PVCmYl" crossorigin="anonymous"></script> -->
     <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../node_modules/propellerkit/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/propellerkit/dist/js/propeller.min.js"></script>
     <script>
         $('.date').datepicker({
             format: 'dd-mm-yyyy',
