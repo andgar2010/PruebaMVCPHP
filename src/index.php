@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
 
     <!-- Propellerkit -->
+    <!-- Info: Bootstrap 4 incompatible  -->
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/bootstrap.min.css">
+    <!-- Info: Bootstrap 4 incompatible  -->
+
     <link rel="stylesheet" href="../node_modules/propellerkit/dist/css/propeller.min.css">
 
     <!-- Font Awesome -->
@@ -35,7 +38,7 @@
 
     <!-- Script first JQuery, then Toastr -->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/toastr/build/toastr.min.js"></script>
+    <!-- <script src="../node_modules/toastr/build/toastr.min.js"></script> -->
 
 </head>
 <body>
@@ -191,9 +194,13 @@
 
     <!-- Popper.js, then Bootstrap JS -->
     <script src="../node_modules/popper.js/dist/popper.min.js"></script>
+
+    <!-- Info: Bootstrap 4 incompatible  -->
+    <script src="../node_modules/propellerkit/dist/js/bootstrap.min.js"></script>
+    <!-- Info: Bootstrap 4 incompatible  -->
+
+    <script src="../node_modules/propellerkit/dist/js/propeller.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../node_modules/propellerkit/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/propellerkit/dist/js/propeller.min.js"></script>
 </body>
 </html>
