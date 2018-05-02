@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Datos de empleados</title>
 
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -38,7 +37,7 @@
 
     <!-- Script first JQuery, then Toastr -->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- <script src="../node_modules/toastr/build/toastr.min.js"></script> -->
+    <script src="../node_modules/toastr/build/toastr.min.js"></script>
 
 </head>
 <body>
