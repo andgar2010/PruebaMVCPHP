@@ -1,15 +1,14 @@
-<?php
-include('conexion.php');
-?>
+<?php include('conexion.php'); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <!--
-    Project      : Datos de empleados con PHP, MySQLi y Bootstrap CRUD  (Create read, Update, Delete) 
-    Author		 : Obed Alvarado
-    Website		 : http://www.obedalvarado.pw
-    Blog         : http://obedalvarado.pw/blog/
-    Email	 	 : info@obedalvarado.pw
+    Basada Project  : Datos de empleados con PHP, MySQLi y Bootstrap CRUD  (Create read, Update, Delete)
+    Author		    : Obed Alvarado
+    Website		    : http://www.obedalvarado.pw
+    Blog            : http://obedalvarado.pw/blog/
+    Email	 	    : info@obedalvarado.pw
 -->
     <!-- Required meta tags -->
     <meta charset="utf-8">

@@ -1,6 +1,4 @@
-<?php
-include('conexion.php');
-?>
+<?php include('conexion.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +29,8 @@ include('conexion.php');
             <h2>Lista de empleados</h2>
             <hr>
             <?php
-            if (isset($_GET['aksi']) == 'delete' ) {
-                // escaping, additionally removing everything that cloud be (html/javascript-) code
-                $nik = mysqli_real_escape_string($con, (strip_tags($_GET['nik'], ENT_QUOTES)));
+            if (isset($_GET['aksi']) == 'delete') {
+                $nik = mysqli_real_escape_string($con, (strip_tags($_GET['nik'], ENT_QUOTES))); // escaping, additionally removing everything that cloud be (html/javascript-) code
                 $sql_cek = "SELECT * FROM empleados WHERE codigo = '$nik' ";
                 $cek = mysqli_query($con, $sql_cek);
                 if (mysqli_num_rows($cek) == 0) {
