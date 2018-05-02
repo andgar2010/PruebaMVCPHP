@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bootstrap
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bootstrap jquery -offline
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\tools\php72;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\TortoiseGit\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Java\jdk-10.0.1\bin;C:\Program Files\Java\jdk1.8.0_172\bin;C:\Users\AndGar\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Bandizip\;C:\Users\AndGar\AppData\Roaming\npm;C:\Users\AndGar\AppData\Local\Yarn\bin;C:\Users\AndGar\AppData\Roaming\Composer\vendor\bin
@@ -48,10 +48,11 @@ npm manifest:
       "test": "grunt nodeunit"
     },
     "dependencies": {
-      "bootstrap": "^3.3.7",
+      "bootstrap": "3",
       "bootstrap-datepicker": "^1.8.0",
       "font-awesome": "^4.7.0",
-      "jquery": "^1.12.4",
+      "jquery": "1",
+      "popper.js": "^1.14.3",
       "propellerkit": "^1.3.1"
     },
     "devDependencies": {
@@ -342,7 +343,7 @@ Lockfile:
     dependencies:
       jquery ">=1.7.1 <4.0.0"
   
-  bootstrap@^3.0.0, bootstrap@^3.3.7:
+  bootstrap@3, bootstrap@^3.0.0:
     version "3.3.7"
     resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
   
@@ -1598,13 +1599,13 @@ Lockfile:
     dependencies:
       handlebars "^4.0.3"
   
+  jquery@1:
+    version "1.12.4"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
+  
   "jquery@1.9.1 - 3", "jquery@>=1.7.1 <4.0.0":
     version "3.3.1"
     resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
-  
-  jquery@^1.12.4:
-    version "1.12.4"
-    resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
   
   js-tokens@^3.0.0, js-tokens@^3.0.2:
     version "3.0.2"
@@ -2227,6 +2228,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"
     dependencies:
       find-up "^1.0.0"
+  
+  popper.js@^1.14.3:
+    version "1.14.3"
+    resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
   
   posix-character-classes@^0.1.0:
     version "0.1.1"
