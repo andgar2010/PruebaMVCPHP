@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-12 pmd-card pmd-card-title">
                         <div class="media-body">
-                            <table class="table table-bordered">
+                            <table class="table table-hover pmd-table">
                                 <thead>
                                     <tr>
                                         <th>Nombres</th>
