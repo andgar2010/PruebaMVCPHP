@@ -1,33 +1,25 @@
-'use strict';
-
+//Gruntfile.js
 module.exports = function(grunt) {
-
-  // Project configuration.
   grunt.initConfig({
-    watch: { },
+    // Watch task config
+    watch: {},
+    // Usamos BrowserSync para tus archivos .html, .css, etc, y además le metemos un proxy de nuestro hostname
     browserSync: {
-            default_options: {
-                bsFiles: {
-                    src: [
-                        "./src/assets/css/*.css",
-                        "./src/assets/js/*.js",
-                        "./src/*.html",
-                        "./src/*.php"
-                    ]
-                },
-                options: {
-                    watchTask: true,
-                    proxy: "http://localhost:8080/testempleado/src/"
-                }
-            }
+      default_options: {
+        bsFiles: {
+          src: ["css/*.css", "js/*.js", "*.html", "*.php"]
+        },
+        options: {
+          watchTask: true,
+          proxy: "http://localhost:8080/Project_New_Reset_AIHD/WEB/"
         }
+      }
+    }
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-browser-sync");
 
-  // Default task.
-  grunt.registerTask('default', ['browserSync' ,'watch']);
-
+  //Tarea por defecto
+  grunt.registerTask("default", ["browserSync", "watch"]);
 };
